@@ -1,7 +1,9 @@
 # Deplying-ML-model-on-heroku-demo
 
-Deployment on Heroku
-In order to make the application available for others, we still need a couple of minor steps. Let’s start by signing you up for a free account at GIT and Heroku. In order to interact with the two, we need to install GIT and the Heroku command-line interface known as Heroku-CLI. If you are using VSCode, then I would recommend installing the Heroku and Heroku-CLI extensions.
+### Deployment on Heroku
+In order to make the application available for others, we still need a couple of minor steps. 
+
+signing you up for a free account at GIT and Heroku. In order to interact with the two, we need to install GIT and the Heroku command-line interface known as Heroku-CLI. 
 
 Gunicorn
 Although flask is wonderful, it’s mainly used for local development. It isn’t designed to handle the requests that a normal web server receives. In order to handle a larger amount of requests, we need to install the gunicorn python library.
@@ -13,12 +15,16 @@ Having installed gunicorn, we now need to tell Heroku to use it. We do that by c
 Enter this line inside the empty Procfile file:
 
 web: gunicorn app:app
-The first ‘app’ represents the name of the python file that runs your application or the name of the module it is in (i.e., if you had an application called run.py, then it would be run:app).
+
+The first ‘app’ represents the name of the python file that runs your application or the name of the module it is in (i.e., if you had an application called run.py, then it would be run:app)
+.
 The second ‘app’ represents your app name (i.e. app = Flask(__name__)).
 Requirements.txt
+
 Heroku needs to know which libraries to install to run your application. We can automate this process by running:
 
 pip freeze > requirements.txt
+
 This will generate a txt file called requirements.txt with the libraries used in your application. Although brilliant, it does not include all the necessary packages. The list below shows the content of my requirements file (notice that I have included scikit-learn since XGBClassifier object directly interacts with scikit-learn API):
 
 click==8.0.1
@@ -32,7 +38,7 @@ pandas
 xgboost
 scikit-learn
 pickle-mixin
-I did not add specific versions of all my libraries but feel free to do that.
+
 
 Runtime.txt
 Although not necessary, you can add a runtime.txt file if you wish to specify a specific python version. You can check which python version you're running by typing:
@@ -54,12 +60,7 @@ heroku login -i
 An example of a successful login:
 
 
-Image by author
-##########################################
 
-A login might not be successful if you are in the wrong environment. In this scenario, the following command might be useful: conda deactivate
-
-##########################################
 
 Tell git who you are
 Before using the git commands to send our files to Heroku, you need to tell git who you are. This is important because every Git commit uses this information.
