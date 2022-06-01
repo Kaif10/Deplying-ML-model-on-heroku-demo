@@ -73,18 +73,23 @@ Press enter and then type:
 git config --global user.email johndoe@example.com
 Make sure to replace your email address and your name appropriately in those lines keeping the double-quotes. You need to do this only once if you pass the — global option.
 
+```
+
 Make a git repository for your web app
 Create a local git repository by typing:
-
 git init
-Add all your local files to the online repository by typing:
 
+
+Add all your local files to the online repository by typing:
 git add .
+
 Make sure to include the dot after add. The dot means you are adding the entire directory to the repository.
 
 Commit your files with:
-
 git commit -m "First commit"
+
+```
+
 Create an empty app on Heroku
 The next steps consist of creating an empty app on Heroku and sending our local files to that app. And we will be sending the files using git.
 
