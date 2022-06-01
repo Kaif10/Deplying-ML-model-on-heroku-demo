@@ -73,6 +73,7 @@ Press enter and then type:
 git config --global user.email johndoe@example.com
 Make sure to replace your email address and your name appropriately in those lines keeping the double-quotes. You need to do this only once if you pass the — global option.
 
+
 ```
 
 Make a git repository for your web app
@@ -93,6 +94,7 @@ git commit -m "First commit"
 Create an empty app on Heroku
 The next steps consist of creating an empty app on Heroku and sending our local files to that app. And we will be sending the files using git.
 
+```
 Create an empty Heroku app:
 
 heroku create <app-name-you-choose>
@@ -115,15 +117,19 @@ You can open it by simply following the URL above or typing:
 heroku open
 It might take some time to function, so have patience. If all went well, you should have an app running on the web. You should be proud of yourself.
 
-If you feel comfortable or want to see a different variation of the deployment, I can recommend visiting my advanced deployment. The files are made available on my git.
 
-Nice to know
+
+``` 
+
+```
 The following commands have been great dealing with all the errors I saw along the way:
-
 heroku local Use this to open Heroku on a local server. Remember to install all required libraries.
 heroku logout It should be self-explanatory.
 heroku run 'ls -al' A copy of your dyno to have it list the directory contents. This is useful when you add more files and need to check that they have been added on Heroku.
 heroku logs --tail With this Heroku command, you can access information about your app’s performance once it’s up and running.
 heroku restart It should be self-explanatory.
 heroku apps:rename <newname> Rename your app.
+```
+ 
+
 
