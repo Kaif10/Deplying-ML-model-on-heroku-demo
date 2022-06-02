@@ -1,7 +1,7 @@
 # Deplying-ML-model-on-heroku-demo
 
 ### Deployment on Heroku
-In order to make the application available for others, we still need a couple of minor steps. 
+In order to make the application available for others, we need to deploy it live to heroku. 
 
 signing you up for a free account at GIT and Heroku. In order to interact with the two, we need to install GIT and the Heroku command-line interface known as Heroku-CLI. 
 
@@ -9,23 +9,26 @@ Gunicorn
 Although flask is wonderful, it’s mainly used for local development. It isn’t designed to handle the requests that a normal web server receives. In order to handle a larger amount of requests, we need to install the gunicorn python library.
 
 pip install gunicorn
-Procfile
 Having installed gunicorn, we now need to tell Heroku to use it. We do that by creating a file called procfile without file extension (for example, Procfile.txt is not valid.). The file will specify which commands to execute on startup.
 
+```
 Enter this line inside the empty Procfile file:
 web: gunicorn app:app
+```
 
 The first ‘app’ represents the name of the python file that runs your application or the name of the module it is in (i.e., if you had an application called run.py, then it would be run:app)
-.
+
+
 The second ‘app’ represents your app name (i.e. app = Flask(__name__)).
 Requirements.txt
+
 
 ```
 Heroku needs to know which libraries to install to run your application. We can automate this process by running:
 pip freeze > requirements.txt
 ```
 
-This will generate a txt file called requirements.txt with the libraries used in your application. Although brilliant, it does not include all the necessary packages. The list below shows the content of my requirements file (notice that I have included scikit-learn since XGBClassifier object directly interacts with scikit-learn API):
+This will generate a txt file called requirements.txt with the libraries used in your application. Although brilliant, it does not include all the necessary packages. The list below shows the content of my requirements file :
 
 click==8.0.1
 Flask==2.0.1
