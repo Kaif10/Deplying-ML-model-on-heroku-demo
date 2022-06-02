@@ -13,7 +13,6 @@ Procfile
 Having installed gunicorn, we now need to tell Heroku to use it. We do that by creating a file called procfile without file extension (for example, Procfile.txt is not valid.). The file will specify which commands to execute on startup.
 
 Enter this line inside the empty Procfile file:
-
 web: gunicorn app:app
 
 The first ‘app’ represents the name of the python file that runs your application or the name of the module it is in (i.e., if you had an application called run.py, then it would be run:app)
@@ -21,9 +20,10 @@ The first ‘app’ represents the name of the python file that runs your applic
 The second ‘app’ represents your app name (i.e. app = Flask(__name__)).
 Requirements.txt
 
+```
 Heroku needs to know which libraries to install to run your application. We can automate this process by running:
-
 pip freeze > requirements.txt
+```
 
 This will generate a txt file called requirements.txt with the libraries used in your application. Although brilliant, it does not include all the necessary packages. The list below shows the content of my requirements file (notice that I have included scikit-learn since XGBClassifier object directly interacts with scikit-learn API):
 
@@ -51,27 +51,16 @@ This is the final stage before deployment, and the MyApp directory should look s
 
 
 Login to Heroku
-If all went well, you should start interacting with your Heroku account through the command line. Open your command line while you are inside the project folder and type:
 
+```
+If all went well, you should start interacting with your Heroku account through the command line. Open your command line while you are inside the project folder and type:
 heroku login
 Use the email address and password used when creating your Heroku account. The command will open a browser window, but if you prefer to stay in the command line, just type:
 
 heroku login -i
-An example of a successful login:
+```
 
 
-
-
-Tell git who you are
-Before using the git commands to send our files to Heroku, you need to tell git who you are. This is important because every Git commit uses this information.
-
-To do that, type this in the command line:
-
-git config --global user.name "John Doe"
-Press enter and then type:
-
-git config --global user.email johndoe@example.com
-Make sure to replace your email address and your name appropriately in those lines keeping the double-quotes. You need to do this only once if you pass the — global option.
 
 
 ```
@@ -94,15 +83,13 @@ git commit -m "First commit"
 Create an empty app on Heroku
 The next steps consist of creating an empty app on Heroku and sending our local files to that app. And we will be sending the files using git.
 
+
 ```
 Create an empty Heroku app:
-
 heroku create <app-name-you-choose>
 Once the app has been created, you can enter your Heroku account to get an overview:
 
 
-Image by author
-The final steps consist of taking all our files, pushing them to Heroku, and then activating the app:
 
 git push heroku master
 Activate the app and set the number of dynos (anything more than one will cost):
